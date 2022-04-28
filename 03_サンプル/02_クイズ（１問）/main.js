@@ -1,27 +1,52 @@
 const quizText = document.getElementById("quiz-text")
 const quizImage = document.getElementById("quiz-image")
+const Button = document.getElementsByClassName("button-main")
 const choice1 = document.getElementById("choice-1")
 const choice2 = document.getElementById("choice-2")
 const choice3 = document.getElementById("choice-3")
+const choice4 = document.getElementById("choice-4")
 const feedback = document.getElementById("feedback")
+
+//ボタンの追加
+
+const button1 = document.createElement("button")
+button1.setAttribute("id", "choice-1")
+
+const button2 = document.createElement("button")
+button2.setAttribute("id", "choice-2")
+
+const button3 = document.createElement("button")
+button3.setAttribute("id", "choice-3")
+
+const button4 = document.createElement("button")
+button4.setAttribute("id", "choice-4")
+
+button1.append(Button)
+button2.append(Button)
+button3.append(Button)
+button4.append(Button)
 
 // クイズの内容
 const quiz = {
-  text: "この星の名前は何でしょう？",
-  image: "Ganymede.jpg",
+  text: "このキャラクターの名前はなんでしょう？",
+  image: "swallows.jpg",
   choices: [
     {
-      text: "ゴリアテ",
+      text: "きららん",
+      feedback: "残念！きららんは、燕市のマスコットキャラクターだよ",
+    },
+    {
+      text: "つばみ",
       feedback:
-        "残念！ゴリアテは、旧約聖書に登場するダビデに石で殺される巨人だよ。",
+        "残念！つばみは、ヤクルトスワローズの女の子のキャラクターだよ。",
     },
     {
-      text: "ゼニガメ",
-      feedback: "残念！ゼニガメは、クサガメまたはニホンイシガメの幼体だよ。",
+      text: "つば九郎",
+      feedback: "正解！つば九郎は、ヤクルトスワローズの公式キャラクターだよ！",
     },
     {
-      text: "ガニメデ",
-      feedback: "正解！ガニメデは、木星の第三惑星だよ！",
+      text: "つば八郎",
+      feedback: "惜しい!つば八郎だと数字が足りない、、",
     },
   ],
 }
@@ -38,6 +63,7 @@ const reloadQuiz = function () {
   choice1.textContent = quiz.choices[0].text
   choice2.textContent = quiz.choices[1].text
   choice3.textContent = quiz.choices[2].text
+  choice4.textContent = quiz.choices[3].text
 }
 
 // choiceNumber番目の選択肢を選択
@@ -57,6 +83,9 @@ choice2.onclick = function () {
 choice3.onclick = function () {
   // 2 番目の選択肢を選択
   choose(2)
+}
+choice4.onclick = function () {
+  choose(3)
 }
 
 // reloadQuiz関数 を実行して、クイズを画面に表示する
